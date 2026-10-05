@@ -4,45 +4,40 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#102330">
   <title>MOVANE — Travel, well handled.</title>
-  <meta name="description" content="From the southern coast to the hills of Ella and the ancient rock of Sigiriya. Discover Sri Lanka with Movane Holidays and shape your own journey.">
+  <meta name="description" content="One scroll. One journey across Sri Lanka. Travel from airport arrivals through Sigiriya, Kandy, the highlands, Ella and the southern coast with MOVANE Holidays.">
   <link rel="icon" type="image/png" href="assets/movane-brand-mark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="brand.css"><script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="brand.css"><link rel="stylesheet" href="cinema.css"><script src="app.js" defer></script><script type="module" src="cinema.js"></script>
 </head>
 <body>
   <a href="#destinations" class="skip-link">Skip to destinations</a>
   <main>
-    <section class="journey" id="journey" aria-label="A journey through Sri Lanka">
-      <div class="journey-stage">
-        <div class="ambient" aria-hidden="true"></div>
-        <div class="hero-frame">
-          <div class="scenes" aria-hidden="true">
-            <div class="scene active" data-scene="0"><img src="assets/coast.jpg" alt="" fetchpriority="high"><div class="scene-shade"></div></div>
-            <div class="scene" data-scene="1"><img src="assets/ella.jpg" alt=""><div class="scene-shade"></div></div>
-            <div class="scene" data-scene="2"><img src="assets/sigiriya.jpg" alt=""><div class="scene-shade"></div></div>
-          </div>
-          <header class="nav">
-            <a href="#journey" class="brand" aria-label="Movane Holidays home"><img src="assets/movane-wordmark-reverse.png" alt="MOVANE" width="168" height="56"></a>
-            <nav aria-label="Main navigation"><a href="#destinations">Destinations</a><a href="#journeys">Our journeys</a><a href="#about">Why Movane</a></nav>
-            <button class="button light nav-cta" data-plan>Plan your trip <span class="button-dot" aria-hidden="true"></span></button>
-            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
-          </header>
-          <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="#destinations">Destinations</a><a href="#journeys">Our journeys</a><a href="#about">Why Movane</a><button data-plan>Plan your trip</button></nav>
-          <div class="hero-eyebrow"><span class="tiny-sun" aria-hidden="true">✳</span> SMALL ISLAND. ENDLESS DISCOVERY.</div>
-          <div class="hero-stories">
-            <article class="hero-story active" data-story="0"><div class="chapter-label">01 — THE SOUTHERN COAST</div><h1>A little island.<br>A whole world<br>of <em>wonder.</em></h1><p>Salt in the air. Sand between your toes.<br>Your Sri Lankan story starts here.</p></article>
-            <article class="hero-story" data-story="1" inert><div class="chapter-label">02 — THE HILL COUNTRY</div><h2>Take the<br><em>scenic route.</em></h2><p>Through tea-green hills and cloud-kissed valleys.<br>Slow down. The journey is the destination.</p></article>
-            <article class="hero-story" data-story="2" inert><div class="chapter-label">03 — THE CULTURAL HEART</div><h2>Some places<br>stay with you.<br><em>Forever.</em></h2><p>Climb into history. Wander into wonder.<br>Meet the island beyond the postcard.</p></article>
-          </div>
-          <aside class="location-stamp"><span class="location-icon" aria-hidden="true">⌖</span><span><small>YOU ARE HERE</small><strong id="location-name">Southern coast</strong><span id="location-caption">Indian Ocean, Sri Lanka</span></span></aside>
-          <div class="hero-bottom">
-            <button class="scroll-cue" id="explore-scroll"><span class="mouse" aria-hidden="true"></span><span>SCROLL TO EXPLORE</span></button>
-            <div class="chapter-nav" aria-label="Explore Sri Lanka chapters"><button class="chapter active" data-chapter="0" aria-label="Explore the coast" aria-current="step"><span>01</span> Coast<i></i></button><button class="chapter" data-chapter="1" aria-label="Explore the hills"><span>02</span> Hills<i></i></button><button class="chapter" data-chapter="2" aria-label="Explore the culture"><span>03</span> Culture<i></i></button></div>
-            <span class="island-note">7° N &nbsp; 81° E<br><small>A world within an island</small></span>
-          </div>
-          <div class="hero-progress" aria-hidden="true"><span></span></div>
-        </div>
+    <section class="journey cinematic-journey" id="journey" aria-label="One journey across Sri Lanka" aria-describedby="world-description">
+      <p id="world-description" class="sr-only">A scroll-controlled, animated journey from airport arrivals through Colombo, Sigiriya, Kandy, the tea-covered highlands, a blue train and Nine Arch Bridge in Ella, a wildlife safari, and the southern coast. Scroll down to travel forward and up to return. Destination controls let you move to a particular moment.</p>
+      <div class="journey-stage cinema-stage" id="cinema-stage">
+        <canvas id="travel-world" aria-hidden="true"></canvas><div class="cinema-fallback" aria-hidden="true"></div>
+        <header class="nav cinema-nav">
+          <a href="#journey" class="brand" aria-label="Movane Holidays home"><img src="assets/movane-wordmark-reverse.png" alt="MOVANE" width="168" height="56"><small>HOLIDAYS</small></a>
+          <nav aria-label="Main navigation"><a href="#destinations">Destinations</a><a href="#journeys">Our journeys</a><a href="#about">Why Movane</a></nav>
+          <button class="button light nav-cta" data-plan>Plan My Trip</button>
+          <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+        </header>
+        <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="#destinations">Destinations</a><a href="#journeys">Our journeys</a><a href="#about">Why Movane</a><button data-plan>Plan My Trip</button></nav>
+        <article class="cinema-intro" id="cinema-intro"><span class="eyebrow">MOVANE HOLIDAYS</span><h1>Sri Lanka,<br><em>well handled.</em></h1><p>Explore Sri Lanka through a journey designed around you.</p><div class="intro-actions"><button class="button journey-primary" id="start-journey">Start Your Journey</button><button class="button journey-secondary" data-plan>Plan My Trip</button></div></article>
+        <nav class="journey-indicator" id="journey-indicator" aria-label="Journey across Sri Lanka"><ol>
+          <li><button data-stop="0" aria-label="Travel to airport arrival" class="active" aria-current="step"><span>Arrival</span><b aria-hidden="true"></b></button></li>
+          <li><button data-stop="0.215" aria-label="Travel to Sigiriya"><span>Sigiriya</span><b aria-hidden="true"></b></button></li>
+          <li><button data-stop="0.32" aria-label="Travel to Kandy"><span>Kandy</span><b aria-hidden="true"></b></button></li>
+          <li><button data-stop="0.455" aria-label="Travel to the hill country"><span>Highlands</span><b aria-hidden="true"></b></button></li>
+          <li><button data-stop="0.622" aria-label="Travel to Ella and the train journey"><span>Ella</span><b aria-hidden="true"></b></button></li>
+          <li><button data-stop="0.798" aria-label="Travel to the safari"><span>The wild</span><b aria-hidden="true"></b></button></li>
+          <li><button data-stop="0.94" aria-label="Travel to the southern coast"><span>South coast</span><b aria-hidden="true"></b></button></li>
+        </ol></nav>
+        <aside class="destination-caption" id="destination-caption"><span class="eyebrow" id="cinema-label">01 — Arrival</span><h2 id="cinema-caption">Welcome to Sri Lanka</h2></aside>
+        <div class="cinema-concept"><span>One scroll. One journey.</span><i aria-hidden="true"></i><span>Across Sri Lanka, with MOVANE.</span></div>
+        <p class="world-status" id="world-status" role="status">Preparing your journey…</p>
+        <div class="cinema-end" id="cinema-end" inert><span class="eyebrow">YOUR NEXT CHAPTER</span><h2>Your Sri Lanka story<br>starts here.</h2><button class="button" data-plan>Design My Journey</button></div>
       </div>
     </section>
     <section class="destinations section" id="destinations">

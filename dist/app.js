@@ -1,49 +1,6 @@
 'use strict';
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const journey = $('#journey');
-const scenes = $$('.scene');
-const stories = $$('.hero-story');
-const chapters = $$('.chapter');
-const locationNames = ['Southern coast', 'Ella, hill country', 'Sigiriya, cultural heart'];
-const locationCaptions = ['Indian Ocean, Sri Lanka', 'Nine Arch Bridge, Sri Lanka', 'The Lion Rock, Sri Lanka'];
-let currentChapter = -1;
-let scheduled = false;
-function setChapter(index) {
-  if (index === currentChapter) return;
-  currentChapter = index;
-  scenes.forEach((scene, i) => scene.classList.toggle('active', i === index));
-  stories.forEach((story, i) => { story.classList.toggle('active', i === index); story.inert = i !== index; });
-  chapters.forEach((chapter, i) => { chapter.classList.toggle('active', i === index); if (i === index) chapter.setAttribute('aria-current', 'step'); else chapter.removeAttribute('aria-current'); });
-  $('#location-name').textContent = locationNames[index];
-  $('#location-caption').textContent = locationCaptions[index];
-}
-function updateJourney() {
-  scheduled = false;
-  if (reducedMotion.matches) return;
-  const bounds = journey.getBoundingClientRect();
-  const distance = journey.offsetHeight - $('.journey-stage').offsetHeight;
-  const progress = Math.max(0, Math.min(1, -bounds.top / Math.max(distance, 1)));
-  const index = Math.min(2, Math.floor(progress * 3));
-  setChapter(index);
-  const localProgress = Math.min(1, progress * 3 - index);
-  scenes[index].querySelector('img').style.transform = `scale(${1.06 + localProgress * .075}) translateY(${-localProgress * 1.5}%)`;
-  $('.hero-progress span').style.width = `${progress * 100}%`;
-}
-function scheduleJourney() { if (!scheduled) { scheduled = true; requestAnimationFrame(updateJourney); } }
-window.addEventListener('scroll', scheduleJourney, { passive: true });
-window.addEventListener('resize', scheduleJourney, { passive: true });
-reducedMotion.addEventListener('change', () => { setChapter(0); scheduleJourney(); });
-function goToChapter(index) {
-  if (reducedMotion.matches) { setChapter(index); return; }
-  const target = window.scrollY + journey.getBoundingClientRect().top + (journey.offsetHeight - $('.journey-stage').offsetHeight) * ((index + .12) / 3);
-  window.scrollTo({ top: target, behavior: 'smooth' });
-}
-chapters.forEach(chapter => chapter.addEventListener('click', () => goToChapter(Number(chapter.dataset.chapter))));
-$('#explore-scroll').addEventListener('click', () => { if (currentChapter >= 2) $('#destinations').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth' }); else goToChapter(currentChapter + 1); });
-setChapter(0);
-updateJourney();
 const menuButton = $('.menu-toggle');
 const mobileMenu = $('#mobile-menu');
 function closeMenu() { mobileMenu.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Open menu'); }

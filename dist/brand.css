@@ -1,0 +1,101 @@
+/* MOVANE Deep Ocean brand system. Exact palette and typography from the supplied guide. */
+:root {
+  --ocean: #102330;
+  --lagoon: #1e9c93;
+  --salt: #f6f5f0;
+  --cool: #d3dadb;
+  --sunstone: #e0a15b;
+  --ink: var(--ocean);
+  --green: var(--ocean);
+  --lime: var(--lagoon);
+  --paper: var(--salt);
+  --muted: #566975;
+  --font: 'Inter', sans-serif;
+}
+body { background: var(--salt); color: var(--ocean); }
+.hero-story h1, .hero-story h2, .section h2, dialog h2, #result-title, .route strong, .card-content strong {
+  font-family: 'Sora', sans-serif;
+}
+.hero-story h1, .hero-story h2 { font-weight: 500; letter-spacing: -.045em; }
+.hero-story em, .section h2 em, dialog h2 em {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+.hero-story em, .closing h2 em { color: var(--sunstone); }
+.section h2 { font-weight: 500; letter-spacing: -.055em; }
+.brand { padding: 3px 0; }
+.brand img { width: 168px; height: 56px; display: block; object-fit: contain; }
+.footer-brand img { width: 140px; height: auto; }
+.nav { background: var(--ocean); border-color: #d3dadb33; padding-top: 10px; padding-bottom: 10px; }
+.nav-cta { background: var(--lagoon) !important; color: var(--ocean) !important; }
+.nav-cta:hover { background: var(--sunstone) !important; }
+.journey, .hero-frame { background: var(--ocean); }
+.ambient { background: linear-gradient(#10233088, #102330ce), url('assets/coast.jpg') center/cover; }
+.scene-shade {
+  background: linear-gradient(90deg, #102330a8 0%, #10233022 70%), linear-gradient(0deg, #102330eb 0%, #10233026 62%, #10233045 100%);
+}
+.hero-story p, .chapter-label { color: var(--salt); }
+.tiny-sun, .location-icon { color: var(--sunstone); }
+.hero-progress span, .chapter.active i { background: var(--lagoon); }
+.button.light { background: var(--salt); color: var(--ocean); }
+.button.light:hover { background: var(--cool); }
+.button.dark { background: var(--ocean); color: var(--salt); }
+.button.dark:hover { background: #1b3b4f; }
+.button.outline { border-color: var(--cool); }
+.destination-card { background: var(--ocean); }
+.destination-card:after {
+  background: linear-gradient(0deg, #102330e8 0%, transparent 80%), linear-gradient(180deg, #10233062, transparent 30%);
+}
+.card-content small { color: var(--sunstone); }
+.card-content strong { font-size: clamp(22px, 2vw, 30px); letter-spacing: -.04em; }
+.route { border-bottom-color: var(--cool); }
+.route-num, .route small, .values b { color: #176e69; }
+.route strong { font-size: 24px; letter-spacing: -.045em; }
+.journeys-section { border-top-color: var(--cool); }
+.about-section { background: var(--cool); }
+.about-grid h2 { font-size: clamp(34px, 3.35vw, 51px); }
+.closing { background: var(--ocean); }
+.closing .eyebrow { color: var(--sunstone); }
+footer { background: var(--ocean); color: var(--cool); border-top: 1px solid #d3dadb33; }
+footer p { font-size: 13px; }
+.mobile-menu { background: var(--ocean); }
+.eyebrow { font-size: 12px; }
+dialog { background: var(--salt); }
+.close-modal { background: var(--salt); color: var(--ocean); }
+.interest-options input:checked+span { background: var(--ocean); border-color: var(--ocean); color: var(--salt); }
+.interest-options span, select, textarea { border-color: var(--cool); }
+.interest-options span, form label, legend { font-size: 14px; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline-color: var(--lagoon);
+}
+.interest-options input:focus-visible+span { outline-color: var(--lagoon); }
+::selection { background: var(--sunstone); color: var(--ocean); }
+@media (max-width: 1100px) {
+  .brand img { width: 151px; height: 50px; }
+  .route strong { font-size: 22px; }
+}
+@media (max-width: 760px) {
+  .brand img { width: 126px; height: 42px; }
+  .nav { padding: 6px 16px; }
+  .hero-story h1, .hero-story h2 { font-size: clamp(38px, 8.8vw, 54px); letter-spacing: -.055em; }
+  .section h2 { font-size: 37px; }
+  .card-content strong { font-size: 29px; }
+  .about-grid h2 { font-size: 32px; }
+  .closing h2 { font-size: 33px; }
+  .route strong { font-size: 21px; }
+  .interest-options span { font-size: 13px; padding: 11px; }
+  .footer-brand img { width: 126px; }
+}
+@media (max-width: 760px) and (max-height: 700px) {
+  .hero-eyebrow { top: 105px; }
+  .hero-stories { top: 155px; bottom: 190px; }
+  .hero-story { justify-content: flex-start; }
+  .hero-story h1, .hero-story h2 { font-size: clamp(34px, 7vw, 44px); }
+  .hero-story p { font-size: 14px; margin-top: 14px; }
+  .chapter-label { margin-bottom: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-story h1 { font-size: clamp(38px, 6.35vw, 100px); }
+}

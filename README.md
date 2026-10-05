@@ -17,3 +17,7 @@ Images are downloaded from Unsplash and used under the Unsplash License (https:/
 ## Local preview
 
 Run `node preview.mjs` from this directory and open the printed address.
+
+## Brand system
+
+The supplied MOVANE Deep Ocean brand sheet sets Ocean Black #102330, Lagoon Teal #1E9C93, Salt White #F6F5F0, Cool Grey #D3DADB and Sunstone #E0A15B. Headings use Sora; body text and UI use Inter. The MOVANE wordmark and app mark are extracted directly from that supplied PDF. The tagline is "Travel, well handled."
